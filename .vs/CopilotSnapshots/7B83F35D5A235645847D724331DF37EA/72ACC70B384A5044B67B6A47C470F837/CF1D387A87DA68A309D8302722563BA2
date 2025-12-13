@@ -1,0 +1,65 @@
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using ModelContextProtocol.Server;
+using System.ComponentModel;
+using FancyMCP;
+using Azure;
+using Azure.AI.OpenAI;
+using MtgChatBotPrototype.Services;
+using Microsoft.Extensions.Configuration;
+
+var builder = Host.CreateApplicationBuilder(args);
+builder.Logging.AddConsole(consoleLogOptions =>
+{
+    // Configure all logs to go to stderr
+    consoleLogOptions.LogToStandardErrorThreshold = LogLevel.Trace;
+});
+
+// Get configuration values
+string? azureOpenAiUrl = builder.Configuration["AzureOpenAI:Endpoint"];
+string? azureOpenAiKey = builder.Configuration["AzureOpenAI:ApiKey"];
+
+if(string.IsNullOrEmpty(azureOpenAiKey) || string.IsNullOrEmpty(azureOpenAiUrl))
+{
+    throw new Exception("invalid OpenAI Key or URI");
+}
+
+// Register Azure OpenAI client
+builder.Services.AddSingleton(new AzureOpenAIClient(
+    new Uri(azureOpenAiUrl),
+    new AzureKeyCredential(azureOpenAiKey)
+));
+
+// Register IConfiguration explicitly
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
+// Register HTTP clients and services
+builder.Services.AddHttpClient<MtgApiClient>();
+builder.Services.AddTransient<DeckAiService>();
+builder.Services.AddTransient<MtgAiService>();
+
+builder.Services
+    .AddMcpServer()
+    .WithStdioServerTransport()
+    .WithToolsFromAssembly();
+
+var app = builder.Build();
+
+// Test service resolution
+try
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var mtgAiService = scope.ServiceProvider.GetRequiredService<MtgAiService>();
+        Console.Error.WriteLine("Successfully resolved MtgAiService");
+    }
+}
+catch (Exception ex)
+{
+    Console.Error.WriteLine($"Failed to resolve MtgAiService: {ex.Message}");
+    Console.Error.WriteLine($"Stack trace: {ex.StackTrace}");
+}
+
+await app.RunAsync();
+

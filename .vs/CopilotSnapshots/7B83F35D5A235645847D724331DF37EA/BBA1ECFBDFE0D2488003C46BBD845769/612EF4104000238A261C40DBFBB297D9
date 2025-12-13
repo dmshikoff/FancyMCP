@@ -1,0 +1,35 @@
+﻿using System.ComponentModel;
+using System.Text.Json;
+using FancyMCP.Service.Services;
+using ModelContextProtocol.Server;
+
+namespace FancyMCP.Service.Tools;
+
+[McpServerToolType]
+public class MtgTools
+{
+    [McpServerTool, Description("Search for Magic: The Gathering cards by description")]
+    public static async Task<string> SearchMtgCards(IMtgAiService mtgAiService, string query)
+    {
+        try
+        {
+            var cards = await mtgAiService.UseDeckAiService(query);
+            
+            if (cards == null)
+            {
+                return "Error: Service returned null";
+            }
+            
+            if (cards.Count == 0)
+            {
+                return "No cards found matching your query";
+            }
+            
+            return JsonSerializer.Serialize(cards, new JsonSerializerOptions { WriteIndented = true });
+        }
+        catch (Exception ex)
+        {
+            return $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}";
+        }
+    }
+}

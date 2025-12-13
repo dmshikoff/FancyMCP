@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "fancy-mcp": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "C:/Users/dmshi/source/repos/FancyMCP/FancyMCP/FancyMCP.Service.csproj"
+      ]
+    }
+  }
+}

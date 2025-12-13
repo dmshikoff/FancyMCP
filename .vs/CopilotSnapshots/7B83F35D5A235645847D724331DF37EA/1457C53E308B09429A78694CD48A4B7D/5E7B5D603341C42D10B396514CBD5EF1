@@ -1,0 +1,21 @@
+﻿using System;
+using MtgChatBotPrototype.Services;
+using MtgChatBotPrototype.Models;
+
+namespace FancyMCP;
+
+public class MtgAiService : IMtgAiService
+{
+    private readonly IDeckAiService _deckAiService;
+
+    public MtgAiService(IDeckAiService deckAiService)
+    {
+        _deckAiService = deckAiService;
+    }
+
+    public async Task<List<MtgCard>> UseDeckAiService(string message)
+    {
+        // Example usage of DeckAiService
+        return await _deckAiService.QueryOpenAiAsync(message);
+    }
+}

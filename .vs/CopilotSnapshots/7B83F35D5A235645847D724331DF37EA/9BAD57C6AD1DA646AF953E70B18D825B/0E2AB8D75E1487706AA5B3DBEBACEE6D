@@ -1,0 +1,25 @@
+﻿using System;
+using System.ComponentModel;
+using System.Text.Json;
+using ModelContextProtocol.Server;
+
+namespace FancyMCP;
+
+[McpServerToolType]
+public class MonkeyTools
+{
+    private readonly MtgAiService _mtgAiService;
+
+    public MonkeyTools(MtgAiService mtgAiService)
+    {
+        _mtgAiService = mtgAiService;
+    }
+
+    [McpServerTool, Description("Get a list of cards by search parameters")]
+    public async Task<string> GetMtgCards(string message)
+    {
+        var cards = await _mtgAiService.UseDeckAiService(message);
+        
+        return cards != null ? JsonSerializer.Serialize(cards) : "No cards found";
+    }
+}

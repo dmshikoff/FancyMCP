@@ -1,0 +1,30 @@
+﻿using System.ComponentModel;
+using System.Text.Json;
+using FancyMCP.Service.Services;
+using ModelContextProtocol.Server;
+
+namespace FancyMCP.Service.Tools;
+
+[McpServerToolType]
+public class TestTools
+{
+    [McpServerTool, Description("A simple test tool that returns hello world")]
+    public static async Task<string> SayHello(TestService test)
+    {
+        Console.Error.WriteLine("=== SayHello tool called ===");
+        var hello = await test.SayHello();
+        Console.Error.WriteLine($"=== Result: {hello} ===");
+        var result = JsonSerializer.Serialize(hello);
+        Console.Error.WriteLine($"=== Serialized: {result} ===");
+        return result;
+    }
+
+    [McpServerTool, Description("A super simple test with no dependencies")]
+    public static Task<string> SimpleTest(string input)
+    {
+        Console.Error.WriteLine($"=== SimpleTest called with: {input} ===");
+        var result = $"You said: {input}";
+        Console.Error.WriteLine($"=== Returning: {result} ===");
+        return Task.FromResult(result);
+    }
+}

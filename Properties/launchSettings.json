@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "FancyMCP": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP",
+      "nativeDebugging": true
+    }
+  }
+}
