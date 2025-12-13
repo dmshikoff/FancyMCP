@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MtgChatBotPrototype\MtgChatBotPrototype\MtgChatBotPrototype\MtgChatBotPrototype.csproj" />
+    <ProjectReference Include="..\..\MtgChatBotPrototype\MtgChatBotPrototype\MtgChatBotPrototype\MtgChatBotPrototype.csproj" />
   </ItemGroup>
 
   <ItemGroup>
