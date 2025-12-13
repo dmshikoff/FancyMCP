@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FancyMCP.Service\FancyMCP.Service.csproj" guid="{FAE8D7A8-8C0C-0AB8-9661-EA0E49C2A793}" />
+  <Project Path="..\MtgChatBotPrototype\MtgChatBotPrototype\MtgChatBotPrototype\MtgChatBotPrototype.csproj" guid="{4F844BBA-4AD4-4154-9C78-763669687985}" />
+</Solution>
