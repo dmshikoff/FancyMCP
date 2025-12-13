@@ -1,12 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "78xxwTRL3zo=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP\\FancyMCP.Service.csproj",
+  "dgSpecHash": "REEgul7tZG0=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP.Service.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dmshi\\.nuget\\packages\\azure.ai.openai\\2.8.0-beta.1\\azure.ai.openai.2.8.0-beta.1.nupkg.sha512",
-    "C:\\Users\\dmshi\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
-    "C:\\Users\\dmshi\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "C:\\Users\\dmshi\\.nuget\\packages\\microsoft.extensions.ai.abstractions\\10.0.0\\microsoft.extensions.ai.abstractions.10.0.0.nupkg.sha512",
     "C:\\Users\\dmshi\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.1\\microsoft.extensions.configuration.10.0.1.nupkg.sha512",
     "C:\\Users\\dmshi\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.1\\microsoft.extensions.configuration.abstractions.10.0.1.nupkg.sha512",
@@ -37,10 +34,19 @@
     "C:\\Users\\dmshi\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.1\\microsoft.extensions.primitives.10.0.1.nupkg.sha512",
     "C:\\Users\\dmshi\\.nuget\\packages\\modelcontextprotocol\\0.5.0-preview.1\\modelcontextprotocol.0.5.0-preview.1.nupkg.sha512",
     "C:\\Users\\dmshi\\.nuget\\packages\\modelcontextprotocol.core\\0.5.0-preview.1\\modelcontextprotocol.core.0.5.0-preview.1.nupkg.sha512",
-    "C:\\Users\\dmshi\\.nuget\\packages\\openai\\2.8.0\\openai.2.8.0.nupkg.sha512",
-    "C:\\Users\\dmshi\\.nuget\\packages\\system.clientmodel\\1.8.1\\system.clientmodel.1.8.1.nupkg.sha512",
-    "C:\\Users\\dmshi\\.nuget\\packages\\system.diagnostics.eventlog\\10.0.1\\system.diagnostics.eventlog.10.0.1.nupkg.sha512",
-    "C:\\Users\\dmshi\\.nuget\\packages\\system.memory.data\\8.0.1\\system.memory.data.8.0.1.nupkg.sha512"
+    "C:\\Users\\dmshi\\.nuget\\packages\\system.diagnostics.eventlog\\10.0.1\\system.diagnostics.eventlog.10.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\Users\\dmshi\\source\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype.csproj'. Check that the project reference is valid and that the project file exists.",
+      "projectPath": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP.Service.csproj",
+      "filePath": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP.Service.csproj",
+      "libraryId": "C:\\Users\\dmshi\\source\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype.csproj",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

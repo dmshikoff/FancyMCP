@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FancyMCP.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6752bb015e4aed24d467b9a48c3a4abe6f88d29")]
 [assembly: System.Reflection.AssemblyProductAttribute("FancyMCP.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FancyMCP.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

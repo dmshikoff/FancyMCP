@@ -2,54 +2,6 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "Azure.AI.OpenAI/2.8.0-beta.1": {
-        "type": "package",
-        "dependencies": {
-          "Azure.Core": "1.50.0",
-          "OpenAI": "2.8.0"
-        },
-        "compile": {
-          "lib/net10.0/Azure.AI.OpenAI.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/Azure.AI.OpenAI.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Azure.Core/1.50.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "8.0.0",
-          "System.ClientModel": "1.8.0",
-          "System.Memory.Data": "8.0.1"
-        },
-        "compile": {
-          "lib/net8.0/Azure.Core.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Azure.Core.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.Extensions.AI.Abstractions/10.0.0": {
         "type": "package",
         "compile": {
@@ -674,39 +626,6 @@
           }
         }
       },
-      "OpenAI/2.8.0": {
-        "type": "package",
-        "dependencies": {
-          "System.ClientModel": "1.8.1"
-        },
-        "compile": {
-          "lib/net8.0/OpenAI.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/OpenAI.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "System.ClientModel/1.8.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
-          "System.Memory.Data": "8.0.1"
-        },
-        "compile": {
-          "lib/net9.0/System.ClientModel.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/System.ClientModel.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "System.Diagnostics.EventLog/10.0.1": {
         "type": "package",
         "compile": {
@@ -732,108 +651,10 @@
             "rid": "win"
           }
         }
-      },
-      "System.Memory.Data/8.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/System.Memory.Data.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/System.Memory.Data.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net6.0/_._": {}
-        }
-      },
-      "MtgChatBotPrototype/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v10.0",
-        "dependencies": {
-          "Azure.AI.OpenAI": "2.8.0-beta.1"
-        },
-        "compile": {
-          "bin/placeholder/MtgChatBotPrototype.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MtgChatBotPrototype.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
   "libraries": {
-    "Azure.AI.OpenAI/2.8.0-beta.1": {
-      "sha512": "hxV4iOVbeErzB+Ah0Rx393Efk9GoqQDu74t7ObdXP9Yo9VAsgocozICEP0skqBJubo/KQGf7anyZjaeP/sB2lA==",
-      "type": "package",
-      "path": "azure.ai.openai/2.8.0-beta.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "CHANGELOG.md",
-        "README.md",
-        "azure.ai.openai.2.8.0-beta.1.nupkg.sha512",
-        "azure.ai.openai.nuspec",
-        "azureicon.png",
-        "lib/net10.0/Azure.AI.OpenAI.dll",
-        "lib/net10.0/Azure.AI.OpenAI.xml",
-        "lib/net8.0/Azure.AI.OpenAI.dll",
-        "lib/net8.0/Azure.AI.OpenAI.xml",
-        "lib/netstandard2.0/Azure.AI.OpenAI.dll",
-        "lib/netstandard2.0/Azure.AI.OpenAI.xml"
-      ]
-    },
-    "Azure.Core/1.50.0": {
-      "sha512": "GBNKZEhdIbTXxedvD3R7I/yDVFX9jJJEz02kCziFSJxspSQ5RMHc3GktulJ1s7+ffXaXD7kMgrtdQTaggyInLw==",
-      "type": "package",
-      "path": "azure.core/1.50.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "CHANGELOG.md",
-        "README.md",
-        "azure.core.1.50.0.nupkg.sha512",
-        "azure.core.nuspec",
-        "azureicon.png",
-        "lib/net462/Azure.Core.dll",
-        "lib/net462/Azure.Core.xml",
-        "lib/net472/Azure.Core.dll",
-        "lib/net472/Azure.Core.xml",
-        "lib/net8.0/Azure.Core.dll",
-        "lib/net8.0/Azure.Core.xml",
-        "lib/netstandard2.0/Azure.Core.dll",
-        "lib/netstandard2.0/Azure.Core.xml"
-      ]
-    },
-    "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
-      "sha512": "3WA9q9yVqJp222P3x1wYIGDAkpjAku0TMUaaQV22g6L67AI0LdOIrVS7Ht2vJfLHGSPVuqN94vIr15qn+HEkHw==",
-      "type": "package",
-      "path": "microsoft.bcl.asyncinterfaces/8.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/Microsoft.Bcl.AsyncInterfaces.targets",
-        "buildTransitive/net462/_._",
-        "lib/net462/Microsoft.Bcl.AsyncInterfaces.dll",
-        "lib/net462/Microsoft.Bcl.AsyncInterfaces.xml",
-        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
-        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
-        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
-        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
-        "microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
-        "microsoft.bcl.asyncinterfaces.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
     "Microsoft.Extensions.AI.Abstractions/10.0.0": {
       "sha512": "PHeuDm2tC6wJPEQvleUr2kNQaIMNqSf3aEbzkIPlZyQ0+0SYI9SwXVLdGD1NPBI+xB+Vb2lxZKhrFlIf9kP9WA==",
       "type": "package",
@@ -1765,45 +1586,6 @@
         "modelcontextprotocol.core.nuspec"
       ]
     },
-    "OpenAI/2.8.0": {
-      "sha512": "KcYpZ9IhuxFD2hGAJlL5vABtkr00CjeJU0SY8CjZQyzvzkzLop8jhdX3iDvteVJg6e3y4TEiY+Kti4gDJAagnA==",
-      "type": "package",
-      "path": "openai/2.8.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "CHANGELOG.md",
-        "OpenAI.png",
-        "README.md",
-        "lib/net8.0/OpenAI.dll",
-        "lib/net8.0/OpenAI.xml",
-        "lib/netstandard2.0/OpenAI.dll",
-        "lib/netstandard2.0/OpenAI.xml",
-        "openai.2.8.0.nupkg.sha512",
-        "openai.nuspec"
-      ]
-    },
-    "System.ClientModel/1.8.1": {
-      "sha512": "4oUQgw/vaO4FBOk3YsH40hbrjxRED1l95rRLvTMtHXfQxapXya9IfPpm/KgwValFFtYTfYGFOs/qzGmGyexicQ==",
-      "type": "package",
-      "path": "system.clientmodel/1.8.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "CHANGELOG.md",
-        "DotNetPackageIcon.png",
-        "README.md",
-        "analyzers/dotnet/cs/System.ClientModel.SourceGeneration.dll",
-        "lib/net8.0/System.ClientModel.dll",
-        "lib/net8.0/System.ClientModel.xml",
-        "lib/net9.0/System.ClientModel.dll",
-        "lib/net9.0/System.ClientModel.xml",
-        "lib/netstandard2.0/System.ClientModel.dll",
-        "lib/netstandard2.0/System.ClientModel.xml",
-        "system.clientmodel.1.8.1.nupkg.sha512",
-        "system.clientmodel.nuspec"
-      ]
-    },
     "System.Diagnostics.EventLog/10.0.1": {
       "sha512": "xfaHEHVDkMOOZR5S6ZGezD0+vekdH1Nx/9Ih8/rOqOGSOk1fxiN3u94bYkBW/wigj0Uw2Wt3vvRj9mtYdgwEjw==",
       "type": "package",
@@ -1841,48 +1623,13 @@
         "system.diagnostics.eventlog.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "System.Memory.Data/8.0.1": {
-      "sha512": "BVYuec3jV23EMRDeR7Dr1/qhx7369dZzJ9IWy2xylvb4YfXsrUxspWc4UWYid/tj4zZK58uGZqn2WQiaDMhmAg==",
-      "type": "package",
-      "path": "system.memory.data/8.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/System.Memory.Data.targets",
-        "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
-        "buildTransitive/netcoreapp2.0/System.Memory.Data.targets",
-        "lib/net462/System.Memory.Data.dll",
-        "lib/net462/System.Memory.Data.xml",
-        "lib/net6.0/System.Memory.Data.dll",
-        "lib/net6.0/System.Memory.Data.xml",
-        "lib/net7.0/System.Memory.Data.dll",
-        "lib/net7.0/System.Memory.Data.xml",
-        "lib/net8.0/System.Memory.Data.dll",
-        "lib/net8.0/System.Memory.Data.xml",
-        "lib/netstandard2.0/System.Memory.Data.dll",
-        "lib/netstandard2.0/System.Memory.Data.xml",
-        "system.memory.data.8.0.1.nupkg.sha512",
-        "system.memory.data.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "MtgChatBotPrototype/1.0.0": {
-      "type": "project",
-      "path": "../../MtgChatBotPrototype/MtgChatBotPrototype/MtgChatBotPrototype/MtgChatBotPrototype.csproj",
-      "msbuildProject": "../../MtgChatBotPrototype/MtgChatBotPrototype/MtgChatBotPrototype/MtgChatBotPrototype.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "C:\\Users\\dmshi\\source\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype.csproj",
       "Microsoft.Extensions.Hosting >= 10.0.1",
-      "ModelContextProtocol >= 0.5.0-preview.1",
-      "MtgChatBotPrototype >= 1.0.0"
+      "ModelContextProtocol >= 0.5.0-preview.1"
     ]
   },
   "packageFolders": {
@@ -1892,11 +1639,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP\\FancyMCP.Service.csproj",
+      "projectUniqueName": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP.Service.csproj",
       "projectName": "FancyMCP.Service",
-      "projectPath": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP\\FancyMCP.Service.csproj",
+      "projectPath": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP.Service.csproj",
       "packagesPath": "C:\\Users\\dmshi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\FancyMCP\\obj\\",
+      "outputPath": "C:\\Users\\dmshi\\source\\repos\\FancyMCP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1917,8 +1664,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\dmshi\\source\\repos\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype.csproj": {
-              "projectPath": "C:\\Users\\dmshi\\source\\repos\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype.csproj"
+            "C:\\Users\\dmshi\\source\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype.csproj": {
+              "projectPath": "C:\\Users\\dmshi\\source\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype.csproj"
             }
           }
         }
@@ -2241,5 +1988,16 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\Users\\dmshi\\source\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "C:\\Users\\dmshi\\source\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype\\MtgChatBotPrototype.csproj",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }
