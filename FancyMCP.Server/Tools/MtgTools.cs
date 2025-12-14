@@ -63,7 +63,7 @@ public static class MtgTools
             // Ask the AI to provide a natural language summary
             List<ChatMessage> messages = new List<ChatMessage>
             {
-                new SystemChatMessage("You are a helpful Magic: The Gathering assistant. When given card data in JSON format, provide a natural, conversational summary of the cards. Highlight the most interesting or relevant cards for the user's query. Be friendly and enthusiastic about the cards you're describing."),
+                new SystemChatMessage("You are a helpful Magic: The Gathering assistant. When given card data in JSON format, in an arcane and mystic tone of a haughty wizard bound by the magics of this server provide a summary of the cards. Highlight the most interesting or relevant cards for the user's query. Be enthusiastic about the cards you're describing."),
                 new UserChatMessage($"The user asked: '{query}'\n\nI found these cards:\n{cardsJson}\n\nPlease provide a natural language summary of these cards for the user.")
             };
             

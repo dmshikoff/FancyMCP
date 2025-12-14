@@ -58,13 +58,24 @@ while (true)
 
     try
     {
+        Console.WriteLine();
+        
+        // Start the animation task
+        CancellationTokenSource animationCts = new CancellationTokenSource();
+        Task animationTask = LoadingLoop(animationCts.Token);
+
         // Call the search_mtg_cards tool
         CallToolResult result = await client.CallToolAsync(
             "search_mtg_cards",
             new Dictionary<string, object?> { ["query"] = input },
             cancellationToken: CancellationToken.None);
 
-        Console.WriteLine();
+        // Stop the animation
+        animationCts.Cancel();
+        await animationTask;
+        
+        // Clear the animation line
+        Console.Write("\r" + new string(' ', 50) + "\r");
         
         // Display the natural language response from the AI
         foreach (TextContentBlock content in result.Content.OfType<TextContentBlock>())
@@ -76,9 +87,44 @@ while (true)
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"\n[Client] Error: {ex.Message}\n");
+        Console.WriteLine($"\nError: {ex.Message}\n");
     }
 }
 
-Console.WriteLine("\n[Client] Shutting down...");
-Console.WriteLine($"[Client] Final server log available at: {logPath}");
+Console.WriteLine("\nShutting down...");
+Console.WriteLine($"Final server log available at: {logPath}");
+
+static async Task LoadingLoop(CancellationToken cancellationToken)
+{
+    string[] frames = 
+    [
+        "Consulting the crystal ball                                  ",
+        "Consulting the crystal ball.                                 ",
+        "Consulting the crystal ball..                                ",
+        "Consulting the crystal ball...                               ",
+        "Channeling mystical energies                                 ",
+        "Channeling mystical energies.                                ",
+        "Channeling mystical energies..                               ",
+        "Channeling mystical energies...                              ",
+        "Reaching into the beyond, demanding it reveals its secrets   ",
+        "Reaching into the beyond, demanding it reveals its secrets.  ",
+        "Reaching into the beyond, demanding it reveals its secrets.. ",
+        "Reaching into the beyond, demanding it reveals its secrets..."
+    ];
+
+    int currentFrame = 0;
+    
+    try
+    {
+        while (!cancellationToken.IsCancellationRequested)
+        {
+            Console.Write($"\r{frames[currentFrame]}");
+            currentFrame = (currentFrame + 1) % frames.Length;
+            await Task.Delay(1000, cancellationToken);
+        }
+    }
+    catch (TaskCanceledException)
+    {
+        // Animation was cancelled, this is expected
+    }
+}
