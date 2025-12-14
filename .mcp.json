@@ -6,7 +6,7 @@
           "args":  [
             "run",
             "--project",
-            "FancyMCP.Service/FancyMCP.Service.csproj"
+            "FancyMCP.Server/FancyMCP.Server.csproj"
           ]
       }
     }

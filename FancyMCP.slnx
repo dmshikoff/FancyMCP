@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="FancyMCP.Console/FancyMCP.Console.csproj" Id="7398f9d9-93eb-4487-a85b-d3dd0019f5bb" />
   <Project Path="..\MtgChatBotPrototype\MtgChatBotPrototype\MtgChatBotPrototype\MtgChatBotPrototype.csproj" guid="{4F844BBA-4AD4-4154-9C78-763669687985}" />
-  <Project Path="FancyMCP.Service/FancyMCP.Server.csproj" />
+  <Project Path="FancyMCP.Server/FancyMCP.Server.csproj" />
 </Solution>
