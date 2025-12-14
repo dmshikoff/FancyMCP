@@ -9,6 +9,10 @@ This solution demonstrates a complete MCP implementation consisting of:
 - **FancyMCP.Console** - An MCP client that provides an interactive console interface
 - **MtgChatBotPrototype** - The underlying card search engine powered by Azure OpenAI
 
+## Quick Start
+
+If you encounter JSON deserialization errors with Azure OpenAI function calling, see [FIXING_JSON_ERROR.md](FIXING_JSON_ERROR.md) for the solution.
+
 ## Architecture
 
 ```

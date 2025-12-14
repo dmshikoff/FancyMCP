@@ -6,14 +6,14 @@ Console.WriteLine($"[Client] Starting at {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
 Console.WriteLine();
 
 // Get the path to the MCP server
-string serverPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "FancyMCP.Service", "bin", "Debug", "net10.0", "FancyMCP.Service.dll"));
+string serverPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "FancyMCP.Server", "bin", "Debug", "net10.0", "FancyMCP.Server.dll"));
 string? serverDir = Path.GetDirectoryName(serverPath);
 string logPath = Path.Combine(serverDir!, "mcp-tool-calls.log");
 
 if (!File.Exists(serverPath))
 {
     Console.WriteLine($"Error: Could not find MCP server at {serverPath}");
-    Console.WriteLine("Please build FancyMCP.Service first using 'dotnet build'");
+    Console.WriteLine("Please build FancyMCP.Server first using 'dotnet build'");
     return;
 }
 

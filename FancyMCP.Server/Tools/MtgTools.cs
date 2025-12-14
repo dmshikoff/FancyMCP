@@ -80,10 +80,21 @@ public static class MtgTools
             
             return response.Content[0].Text;
         }
+        catch (JsonException jsonEx)
+        {
+            logger.LogError(jsonEx, "JSON deserialization error in SearchMtgCards tool");
+            await File.AppendAllTextAsync(logPath, $"JSON ERROR: {jsonEx.Message}\n");
+            await File.AppendAllTextAsync(logPath, $"Path: {jsonEx.Path}\n");
+            
+            // Provide a helpful error message to the user
+            return $"I encountered an error while processing your search. The issue appears to be with how the card data is formatted. " +
+                   $"This is a known issue with certain search queries. Please try rephrasing your search or being more specific about the card attributes you're looking for.";
+        }
         catch (Exception ex)
         {
             logger.LogError(ex, "Error in SearchMtgCards tool");
             await File.AppendAllTextAsync(logPath, $"ERROR: {ex.Message}\n");
+            await File.AppendAllTextAsync(logPath, $"Stack trace: {ex.StackTrace}\n");
             return $"I encountered an error: {ex.Message}";
         }
     }
