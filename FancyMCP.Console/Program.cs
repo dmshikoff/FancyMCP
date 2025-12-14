@@ -1,8 +1,7 @@
 ﻿using ModelContextProtocol.Client;
 using ModelContextProtocol.Protocol;
 
-Console.WriteLine("=== FancyMCP Console Client ===");
-Console.WriteLine($"[Client] Starting at {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+Console.WriteLine("=== Magic:The Gathering Card Wizard ===");
 Console.WriteLine();
 
 // Get the path to the MCP server
@@ -17,10 +16,7 @@ if (!File.Exists(serverPath))
     return;
 }
 
-Console.WriteLine($"[Client] Server path: {serverPath}");
-Console.WriteLine($"[Client] Server logs: {logPath}");
-Console.WriteLine("[Client] Starting MCP server process...");
-Console.WriteLine();
+Console.WriteLine("Starting Mystical Card Protocol (MCP) server process...");
 
 // Create the client transport with stdio
 StdioClientTransport clientTransport = new StdioClientTransport(new StdioClientTransportOptions
@@ -30,26 +26,19 @@ StdioClientTransport clientTransport = new StdioClientTransport(new StdioClientT
     Arguments = [serverPath],
 });
 
-Console.WriteLine("[Client] Connecting to MCP server...");
+Console.WriteLine("Connecting to Mystical Card Protocol (MCP) server...");
 
 // Create and connect the MCP client
 McpClient client = await McpClient.CreateAsync(clientTransport);
 
-Console.WriteLine("[Client] Connected successfully!");
-Console.WriteLine($"[Client] 💡 Check '{logPath}' for detailed server logs");
+Console.WriteLine("Bound successfully!");
 Console.WriteLine();
 
 // List available tools
 IList<McpClientTool> tools = await client.ListToolsAsync();
-Console.WriteLine("[Client] Available tools:");
-foreach (McpClientTool tool in tools)
-{
-    Console.WriteLine($"  - {tool.Name}: {tool.Description}");
-}
-Console.WriteLine();
 
 // Interactive loop
-Console.WriteLine("Enter your messages (or 'quit' to exit):");
+Console.WriteLine("What dark and powerful knowledge do you require? (or 'quit' to exit):");
 Console.WriteLine("Example: 'Find me some blue control cards'\n");
 
 while (true)
@@ -69,16 +58,12 @@ while (true)
 
     try
     {
-        Console.WriteLine($"\n[Client] Calling MCP tool at {DateTime.Now:HH:mm:ss}...");
-        Console.WriteLine($"[Client] 💡 Watch '{logPath}' to verify server-side execution");
-
         // Call the search_mtg_cards tool
         CallToolResult result = await client.CallToolAsync(
             "search_mtg_cards",
             new Dictionary<string, object?> { ["query"] = input },
             cancellationToken: CancellationToken.None);
 
-        Console.WriteLine($"[Client] Response received at {DateTime.Now:HH:mm:ss}");
         Console.WriteLine();
         
         // Display the natural language response from the AI
