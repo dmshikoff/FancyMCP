@@ -38,7 +38,7 @@ This solution demonstrates a complete MCP implementation consisting of:
 │  │  • Wrapper for DeckAiService                            │    │
 │  │  • Dependency injection bridge                          │    │
 │  └──────────────────────┬──────────────────────────────────┘    │
-└─────────────────────────┼─────────────────────────────────────-─┘
+└─────────────────────────┼───────────────────────────────────────┘
                           │
 ┌─────────────────────────▼───────────────────────────────────────┐
 │          MtgChatBotPrototype.DeckAiService (Core Logic)         │
