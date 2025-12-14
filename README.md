@@ -80,7 +80,7 @@ builder.Services.AddSingleton<IMtgAiService, MtgAiService>();
 
 ### The MCP Tool: `search_mtg_cards`
 
-Located in `FancyMCP.Service/Tools/MtgTools.cs`, this is the heart of the MCP server:
+Located in `FancyMCP.Server/Tools/MtgTools.cs`, this is the heart of the MCP server:
 
 ```csharp
 [McpServerToolType]
@@ -175,7 +175,7 @@ StdioClientTransport clientTransport = new StdioClientTransport(new StdioClientT
 {
     Name = "FancyMCP.Console",
     Command = "dotnet",
-    Arguments = [serverPath],  // Path to FancyMCP.Service.dll
+    Arguments = [serverPath],  // Path to FancyMCP.Server.dll
 });
 
 // Create and connect the client
@@ -255,7 +255,7 @@ The **MtgChatBotPrototype** project contains the core card search engine that:
 
 #### 1. Service Registration
 ```csharp
-// In FancyMCP.Service/Program.cs
+// In FancyMCP.Server/Program.cs
 builder.Services.AddSingleton<IDeckAiService>(sp =>
 {
     AzureOpenAIClient azureClient = sp.GetRequiredService<AzureOpenAIClient>();
@@ -267,7 +267,7 @@ builder.Services.AddSingleton<IDeckAiService>(sp =>
 
 #### 2. Wrapper Service
 ```csharp
-// In FancyMCP.Service/Services/MtgAiService.cs
+// In FancyMCP.Server/Services/MtgAiService.cs
 public class MtgAiService : IMtgAiService
 {
     private readonly IDeckAiService _deckAiService;
@@ -357,7 +357,7 @@ Add to your MCP client configuration (e.g., `claude_desktop_config.json`):
   "mcpServers": {
     "fancy-mcp": {
       "command": "dotnet",
-      "args": ["run", "--project", "path/to/FancyMCP.Service/FancyMCP.Service.csproj"]
+      "args": ["run", "--project", "path/to/FancyMCP.Server/FancyMCP.Server.csproj"]
     }
   }
 }
