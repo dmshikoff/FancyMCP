@@ -6,9 +6,9 @@ Console.WriteLine($"[Client] Starting at {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
 Console.WriteLine();
 
 // Get the path to the MCP server
-var serverPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "FancyMCP.Service", "bin", "Debug", "net10.0", "FancyMCP.Service.dll"));
-var serverDir = Path.GetDirectoryName(serverPath);
-var logPath = Path.Combine(serverDir!, "mcp-tool-calls.log");
+string serverPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "FancyMCP.Service", "bin", "Debug", "net10.0", "FancyMCP.Service.dll"));
+string? serverDir = Path.GetDirectoryName(serverPath);
+string logPath = Path.Combine(serverDir!, "mcp-tool-calls.log");
 
 if (!File.Exists(serverPath))
 {
@@ -23,7 +23,7 @@ Console.WriteLine("[Client] Starting MCP server process...");
 Console.WriteLine();
 
 // Create the client transport with stdio
-var clientTransport = new StdioClientTransport(new StdioClientTransportOptions
+StdioClientTransport clientTransport = new StdioClientTransport(new StdioClientTransportOptions
 {
     Name = "FancyMCP.Console",
     Command = "dotnet",
@@ -33,16 +33,16 @@ var clientTransport = new StdioClientTransport(new StdioClientTransportOptions
 Console.WriteLine("[Client] Connecting to MCP server...");
 
 // Create and connect the MCP client
-var client = await McpClient.CreateAsync(clientTransport);
+McpClient client = await McpClient.CreateAsync(clientTransport);
 
 Console.WriteLine("[Client] Connected successfully!");
-Console.WriteLine($"[Client] Check '{logPath}' for detailed server logs");
+Console.WriteLine($"[Client] 💡 Check '{logPath}' for detailed server logs");
 Console.WriteLine();
 
 // List available tools
-var tools = await client.ListToolsAsync();
+IList<McpClientTool> tools = await client.ListToolsAsync();
 Console.WriteLine("[Client] Available tools:");
-foreach (var tool in tools)
+foreach (McpClientTool tool in tools)
 {
     Console.WriteLine($"  - {tool.Name}: {tool.Description}");
 }
@@ -55,7 +55,7 @@ Console.WriteLine("Example: 'Find me some blue control cards'\n");
 while (true)
 {
     Console.Write("> ");
-    var input = Console.ReadLine();
+    string? input = Console.ReadLine();
 
     if (string.IsNullOrWhiteSpace(input))
     {
@@ -70,10 +70,10 @@ while (true)
     try
     {
         Console.WriteLine($"\n[Client] Calling MCP tool at {DateTime.Now:HH:mm:ss}...");
-        Console.WriteLine($"[Client] Watch '{logPath}' to verify server-side execution");
+        Console.WriteLine($"[Client] 💡 Watch '{logPath}' to verify server-side execution");
 
         // Call the search_mtg_cards tool
-        var result = await client.CallToolAsync(
+        CallToolResult result = await client.CallToolAsync(
             "search_mtg_cards",
             new Dictionary<string, object?> { ["query"] = input },
             cancellationToken: CancellationToken.None);
@@ -82,7 +82,7 @@ while (true)
         Console.WriteLine();
         
         // Display the natural language response from the AI
-        foreach (var content in result.Content.OfType<TextContentBlock>())
+        foreach (TextContentBlock content in result.Content.OfType<TextContentBlock>())
         {
             Console.WriteLine(content.Text);
         }

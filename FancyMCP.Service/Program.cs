@@ -13,7 +13,7 @@ using FancyMCP;
 // Set environment to Development for better debugging
 Environment.SetEnvironmentVariable("DOTNET_ENVIRONMENT", "Development");
 
-var builder = Host.CreateApplicationBuilder(args);
+HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 builder.Logging.AddConsole(consoleLogOptions =>
 {
     // Configure all logs to go to stderr
@@ -44,15 +44,15 @@ builder.Services.AddSingleton(new AzureOpenAIClient(
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<IMtgApiClient>(sp =>
 {
-    var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
-    var httpClient = httpClientFactory.CreateClient();
+    IHttpClientFactory httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
+    HttpClient httpClient = httpClientFactory.CreateClient();
     return new MtgApiClient(httpClient);
 });
 builder.Services.AddSingleton<IDeckAiService>(sp =>
 {
-    var azureClient = sp.GetRequiredService<AzureOpenAIClient>();
-    var mtgClient = sp.GetRequiredService<IMtgApiClient>();
-    var config = builder.Configuration;
+    AzureOpenAIClient azureClient = sp.GetRequiredService<AzureOpenAIClient>();
+    IMtgApiClient mtgClient = sp.GetRequiredService<IMtgApiClient>();
+    IConfiguration config = builder.Configuration;
     return new DeckAiService(azureClient, mtgClient, config);
 });
 builder.Services.AddSingleton<IMtgAiService, MtgAiService>();

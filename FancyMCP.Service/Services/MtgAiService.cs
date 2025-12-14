@@ -21,7 +21,7 @@ public class MtgAiService : IMtgAiService
         _logger.LogInformation(">>> MtgAiService.UseDeckAiService called");
         _logger.LogInformation($">>> Calling DeckAiService.QueryOpenAiAsync with message: {message}");
         
-        var result = await _deckAiService.QueryOpenAiAsync(message);
+        List<MtgCard> result = await _deckAiService.QueryOpenAiAsync(message);
         
         _logger.LogInformation($">>> DeckAiService returned {result?.Count ?? 0} cards");
         
